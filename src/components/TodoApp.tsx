@@ -43,17 +43,23 @@ const TodoApp = () => {
 //Spread Operator (...): The spread operator ... is used to create a new array that includes all the current items in the todos array.
 //creates a new array with all existing todos and adds newTodoItem at the end.
          setTodos([...todos, newTodoItem]);
+         // clear the form 
          setNewTodo('');
        }
      };
 
      const removeTodo = (id: string) => {
+
+          // The filter method creates a new array with all elements that pass the test implemented by the provided function.
        const updatedTodos = todos.filter((todo) => todo.id !== id);
        setTodos(updatedTodos);
      };
 
      const toggleComplete = (id: string) => {
+          // The map method creates a new array populated with the results of calling a provided function on every element in the calling array
+
        const updatedTodos = todos.map((todo) => {
+          
          if (todo.id === id) {
            return { ...todo, completed: !todo.completed };
          }
